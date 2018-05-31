@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -70,7 +71,7 @@
     </div>
   </nav>
 
-  <div class="col-md-3 ">
+  <div class="col-md-4">
     <h2>Podaj dane zamówienia</h2>
     <form id="orderForm">
       <div class="form-group">
@@ -81,16 +82,29 @@
         <label for="surname">Nazwisko</label>
         <input type="text" class="form-control" id="surname">
       </div>
-      <div class="form-group">
+
+      <div class="row">
+      <div class="form-group col-md-8">
         <label for="city">Miasto</label>
         <input type="text" class="form-control" id="city">
+
+
+
+
+
       </div>
+      <div class="form-group col-md-4">
+          <label for="zip">Kod pocztowy</label>
+          <input type="text" class="form-control" id="zip">
+        </div>
+      </div>
+
       <div class="row">
-        <div class="form-group col-md-9">
+        <div class="form-group col-md-8">
           <label for="street">Ulica</label>
           <input type="text" class="form-control" id="street">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
           <label for="streetNumber">Nr domu</label>
           <input type="number" class="form-control" id="streetNumber">
         </div>
@@ -118,9 +132,11 @@
           <label class="form-check-label" for="individually">Przy odbiorze</label>
         </div>
       </div>
+      <input class="btn btn-primary" type="submit">
+      <input class="btn btn-danger" type="reset">
     </form>
   </div>
-
+  <footer class="footer col-md-12">Copyright © 2018 Restaurant</footer>
 </body>
 
 </html>
