@@ -1,9 +1,15 @@
 .footer {
     background-color: #222;
     border-color: #080808;
-    border-radius: 4px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     text-align: center;
     color: #9d9d9d;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.navbar {
+    margin: 0px;
+    border-radius: 0px;
 }

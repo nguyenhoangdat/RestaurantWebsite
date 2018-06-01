@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#">Strona Główna</a>
+            <a href="index.html">Strona Główna</a>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu
@@ -73,7 +73,7 @@
 
   <div class="col-md-4">
     <h2>Podaj dane zamówienia</h2>
-    <form id="orderForm">
+    <form id="orderForm" method="POST" action="confirmation.html">
       <div class="form-group">
         <label for="name">Imię</label>
         <input type="text" class="form-control" id="name">
@@ -82,23 +82,16 @@
         <label for="surname">Nazwisko</label>
         <input type="text" class="form-control" id="surname">
       </div>
-
       <div class="row">
-      <div class="form-group col-md-8">
-        <label for="city">Miasto</label>
-        <input type="text" class="form-control" id="city">
-
-
-
-
-
-      </div>
-      <div class="form-group col-md-4">
+        <div class="form-group col-md-8">
+          <label for="city">Miasto</label>
+          <input type="text" class="form-control" id="city">
+        </div>
+        <div class="form-group col-md-4">
           <label for="zip">Kod pocztowy</label>
           <input type="text" class="form-control" id="zip">
         </div>
       </div>
-
       <div class="row">
         <div class="form-group col-md-8">
           <label for="street">Ulica</label>
