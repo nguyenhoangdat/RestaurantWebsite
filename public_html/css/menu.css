@@ -1,0 +1,13 @@
+body {
+    background: red;
+    background: url('images/background/luleburgaz-restoranlar.jpg') no-repeat top center fixed;
+}
+
+#main-content {
+    background: ghostwhite;
+    margin: 1%;
+    border-radius: 1%;
+}
+#categoriesList {
+    margin: 5%;
+}

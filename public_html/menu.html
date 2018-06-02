@@ -5,7 +5,7 @@
     <title>Menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,9 +14,32 @@
     <script src="/node_modules/toastr/toastr.js"></script>
     <link rel="stylesheet" type="text/css" href="/node_modules/toastr/build/toastr.min.css">
 
+    <link rel="stylesheet" href="css/menu.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
     <script src="js/menuScript.js"></script>
     <script src="js/list.js"></script>
+    <script>
+        $(document).ready(function () {
+            AddFoodListToLocalStorage();
+            InitializeFoodList();
+            UpdateTotalPrice();
+        });
+    </script>
+    <style>
+    body {
+        background: url('images/background/Restaurant-Food-2.jpg') no-repeat top center fixed;
+    }
+
+    #main-content {
+        background: ghostwhite;
+        margin: 1%;
+        border-radius: 1%;
+    }
+    #categoriesList {
+        margin: 5%;
+    }
+    </style>
 
 </head>
 
@@ -70,11 +93,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a id="cart-counter">Cena:</a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Koszyk</a>
+                        <a id="cart-counter" href="#"></a>
                     </li>
                     <a class="btn btn-primary navbar-btn" href="form.html">Złóż zamówienie</a>
                 </ul>
@@ -84,8 +103,7 @@
 
     <div class="row">
         <div class="container col-md-3">
-            <div class="col-md-offset-1">
-                <h2>Kategorie</h2>
+            <div id="categoriesList" class="col-md-offset-1">
                 <ul class="list-group">
                     <li class="list-group-item">Śniadania</li>
                     <li class="list-group-item">Dania Główne</li>
@@ -95,12 +113,12 @@
                 </ul>
             </div>
         </div>
-        <main class="container col-md-8">
-            <h2>Wszystkie Dania</h2>
+        <div id="main-content" class="container col-md-7">
+            <h2>Wszystkie Dania</h2><hr>
             <div>
                 <ul id="foodList" class="list-inline"></ul>
             </div>
-        </main>
+        </div>
     </div>
     <footer class="footer col-md-12">Copyright © 2018 Restaurant</footer>
 </body>

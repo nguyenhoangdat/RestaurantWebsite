@@ -1,10 +1,3 @@
-$(function () {
-  AddFoodListToLocalStorage();
-  InitializeFoodList();
-  UpdateTotalPrice();
-});
-
-
 function AddFoodListToLocalStorage() {
   for (let i = 0; i < list.length; i++) {
     const e = list[i];
@@ -62,5 +55,19 @@ function UpdateTotalPrice() {
     sum += element.price;
   });
   var x = document.getElementById("cart-counter");
-  x.innerHTML = "Cena: " + sum + " zł";
+  x.innerHTML = "<span class='glyphicon glyphicon-shopping-cart'></span> Łączna cena: " + sum + " zł";
+  return sum;
+}
+
+function ShowCart(){
+  var cart = StorageToList();
+  var x = $('#cartTable');
+  
+  cart.forEach(e => {
+    x.append("<tr><td>" + e.name + "</td><td>" + e.price + " zł</tr>");
+  });
+
+  var x2 = $('#cartTableTotal');
+  x2.append("<tr><td>Łącznie: </td><td>" + UpdateTotalPrice() + " zł</tr>");
+
 }

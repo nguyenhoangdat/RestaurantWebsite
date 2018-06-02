@@ -7,9 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/style.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="js/menuScript.js"></script>
+  <script src="js/list.js"></script>
+  <script>
+    $(document).ready(function () {
+      ShowCart();
+    });
+
+    function Submit(){
+      alert("Potwierdź");
+      sessionStorage.clear();
+      $('#main-content').html("<h2>Zamówienie zostało pomyślnie złożone</h2>");
+    }
+  </script>
 </head>
 
 <body>
@@ -62,18 +77,18 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#">
-              <span class="	glyphicon glyphicon-shopping-cart"></span> Koszyk</a>
+            <a id="cart-counter" href="#"></a>
           </li>
           <a class="btn btn-primary navbar-btn" href="form.html">Złóż zamówienie</a>
         </ul>
       </div>
     </div>
   </nav>
-
-  <div class="col-md-4">
+<div id="main-content">
+  <div class="col-md-4 col-md-offset-1 ">
     <h2>Podaj dane zamówienia</h2>
-    <form id="orderForm" method="POST" action="confirmation.html">
+    <hr>
+    <form id="orderForm" method="GET" onsubmit="Submit()">
       <div class="form-group">
         <label for="name">Imię</label>
         <input type="text" class="form-control" id="name">
@@ -129,6 +144,21 @@
       <input class="btn btn-danger" type="reset">
     </form>
   </div>
+
+  <div class="col-md-5 col-md-offset-1">
+    <h2>Koszyk</h2>
+    <hr>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <th>Posiłek</th>
+        <th>Cena</th>
+      </thead>
+      <tbody id="cartTable"></tbody>
+      <tfoot id="cartTableTotal"></tfoot>
+    </table>
+  </div>
+
+</div>
   <footer class="footer col-md-12">Copyright © 2018 Restaurant</footer>
 </body>
 
