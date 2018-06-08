@@ -7,28 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-      body {
-          background: url('images/background/Restaurant-Food-2.jpg') no-repeat top center fixed;
-      }
-  
-      .main-content {
-          background: ghostwhite;
-          margin: 2%;
-          border-radius: 1%;
-          padding: 1%;
-      }
-      #categoriesList {
-          margin: 5%;
-      }
-
-      #koszyk{
-        float: right;
-      }
-      </style>
+ 
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <script src="js/menuScript.js"></script>
   <script src="js/list.js"></script>
@@ -37,10 +18,10 @@
       ShowCart();
     });
 
-    function Submit(){
-      alert("Potwierdź");
+    function Submit() {
+      alert("Czy na pewno chcesz wysłać zamówienie?");
       sessionStorage.clear();
-      $('#main-content').html("<h2>Zamówienie zostało pomyślnie złożone</h2><hr><a href='index.html'>Przejdź do strony głównej</a>");
+      $('#main').html("<div class='main-content'><h2>Zamówienie zostało pomyślnie złożone</h2><hr><a href='index.html'>Przejdź do strony głównej</a></div>");
     }
   </script>
 </head>
@@ -102,82 +83,97 @@
       </div>
     </div>
   </nav>
-<div>
-  <div class="col-md-5 col-md-offset-1 main-content ">
-    <h2>Podaj dane zamówienia</h2>
-    <hr>
-    <form id="orderForm" method="GET" onsubmit="Submit()">
-      <div class="form-group">
-        <label for="name">Imię</label>
-        <input type="text" class="form-control" id="name">
-      </div>
-      <div class="form-group">
-        <label for="surname">Nazwisko</label>
-        <input type="text" class="form-control" id="surname">
-      </div>
-      <div class="row">
-        <div class="form-group col-md-8">
-          <label for="city">Miasto</label>
-          <input type="text" class="form-control" id="city">
+  <div id="main">
+    <div class="col-md-5 col-md-offset-1 main-content ">
+      <h2>Podaj dane zamówienia</h2>
+      <hr>
+      <form id="orderForm" method="GET" onsubmit="Submit()">
+        <div class="form-group">
+          <label for="name">Imię</label>
+          <input type="text" class="form-control" id="name">
         </div>
-        <div class="form-group col-md-4">
-          <label for="zip">Kod pocztowy</label>
-          <input type="text" class="form-control" id="zip">
+        <div class="form-group">
+          <label for="surname">Nazwisko</label>
+          <input type="text" class="form-control" id="surname">
         </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-md-8">
-          <label for="street">Ulica</label>
-          <input type="text" class="form-control" id="street">
+        <div class="row">
+          <div class="form-group col-md-8">
+            <label for="city">Miasto</label>
+            <input type="text" class="form-control" id="city">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="zip">Kod pocztowy</label>
+            <input type="text" class="form-control" id="zip">
+          </div>
         </div>
-        <div class="form-group col-md-4">
-          <label for="streetNumber">Nr domu</label>
-          <input type="number" class="form-control" id="streetNumber">
+        <div class="row">
+          <div class="form-group col-md-8">
+            <label for="street">Ulica</label>
+            <input type="text" class="form-control" id="street">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="streetNumber">Nr domu</label>
+            <input type="number" class="form-control" id="streetNumber">
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="email@email.com">
-      </div>
-      <div class="form-group">
-        <label for="phone">Nr telefonu</label>
-        <input type="tel" class="form-control" id="phone">
-      </div>
-      <div class="form-group">
-        <label for="paymentMethod">Metoda płatności</label>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="paymentRadios" id="creditCard" value="option1" checked>
-          <label class="form-check-label" for="creditCard">Karta kredytowa</label>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="email@email.com">
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="paymentRadios" id="paypal" value="option2">
-          <label class="form-check-label" for="paypal">Paypal</label>
+        <div class="form-group">
+          <label for="phone">Nr telefonu</label>
+          <input type="tel" class="form-control" id="phone">
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="paymentRadios" id="individually" value="option3">
-          <label class="form-check-label" for="individually">Przy odbiorze</label>
+        <div class="form-group">
+          <label for="paymentMethod">Metoda płatności</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentRadios" id="creditCard" value="option1" checked>
+            <label class="form-check-label" for="creditCard">Karta kredytowa</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentRadios" id="paypal" value="option2">
+            <label class="form-check-label" for="paypal">Paypal</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentRadios" id="individually" value="option3">
+            <label class="form-check-label" for="individually">Przy odbiorze</label>
+          </div>
         </div>
-      </div>
-      <input class="btn btn-primary" type="submit">
-      <input class="btn btn-danger" type="reset">
-    </form>
+        <input class="btn btn-primary" type="submit">
+        <input class="btn btn-danger" type="reset">
+      </form>
+    </div>
+
+    <section id="koszyk" class="col-md-5 main-content">
+      <h2>Koszyk</h2>
+      <hr>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <th>Posiłek</th>
+          <th>Cena</th>
+        </thead>
+        <tbody id="cartTable"></tbody>
+        <tfoot id="cartTableTotal"></tfoot>
+      </table>
+    </section>
+
   </div>
-
-  <section id="koszyk" class="col-md-5 main-content">
-    <h2>Koszyk</h2>
-    <hr>
-    <table class="table table-hover table-bordered">
-      <thead>
-        <th>Posiłek</th>
-        <th>Cena</th>
-      </thead>
-      <tbody id="cartTable"></tbody>
-      <tfoot id="cartTableTotal"></tfoot>
-    </table>
-  </section>
-
-</div>
   <footer class="footer col-md-12">Copyright © 2018 Restaurant</footer>
 </body>
+<style>
+    body {
+      background: url('images/background/Restaurant-Food-2.jpg') no-repeat top center fixed;
+    }
 
+    .main-content {
+      background: ghostwhite;
+      margin: 2%;
+      border-radius: 1%;
+      padding: 1%;
+    }
+
+    #koszyk {
+      float: right;
+    }
+  </style>
 </html>
