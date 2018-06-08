@@ -1,6 +1,6 @@
 function AddFoodListToLocalStorage() {
-  for (let i = 0; i < list.length; i++) {
-    const e = list[i];
+  for (var i = 0; i < list.length; i++) {
+    var e = list[i];
     localStorage.setItem(e.name, JSON.stringify(e));
   }
 }
@@ -9,8 +9,8 @@ function InitializeFoodList() {
 
   var foodList = $('#foodList');
 
-  for (let i = 0; i < list.length; i++) {
-    const e = list[i];
+  for (var i = 0; i < list.length; i++) {
+    var e = list[i];
     var buttonText = '<button class="btn btn-primary add" id="' + e.name + '">+</button><button class="btn btn-primary remove" id="' + e.name + '">-</button>';
     foodList.append("<li class='list-inline-item'><h4>" + e.name + "</h4><p>" + e.price + " zł</p><img alt=''height='200' width='200' class='img-thumbnail' src='" + e.pictureSrc + "'><br>" + buttonText + "</li>");
   }
@@ -24,7 +24,7 @@ function InitializeFoodList() {
 }
 
 function StorageToList() {
-// o.O
+  // o.O
   var values = [],
     keys = Object.keys(sessionStorage),
     i = keys.length;
@@ -59,10 +59,10 @@ function UpdateTotalPrice() {
   return sum;
 }
 
-function ShowCart(){
+function ShowCart() {
   var cart = StorageToList();
   var x = $('#cartTable');
-  
+
   cart.forEach(e => {
     x.append("<tr><td>" + e.name + "</td><td>" + e.price + " zł</tr>");
   });

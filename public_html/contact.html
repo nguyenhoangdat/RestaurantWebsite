@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Kontakt</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/geolocation.css" type="text/css">
+  <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    function showLocation(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      var myLatLng = { lat: latitude, lng: longitude };
+
+      var mapOptions = {
+        zoom: 17,
+        center: myLatLng,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+      };
+
+      var map = new google.maps.Map(document.getElementById('imap'), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map
+      });
+
+
+
+    }
+    function errorHandler(error) {
+      var output = document.getElementById("geo");
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          output.innerHTML = "Użytkownik nie udostępnił danych.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          output.innerHTML = "Dane lokalizacyjne niedostępne.";
+          break;
+        case error.TIMEOUT:
+          output.innerHTML = "Przekroczono czas żądania.";
+          break;
+        case error.UNKNOWN_ERROR:
+          output.innerHTML = "Wystąpił nieznany błąd.";
+          break;
+      }
+    }
+    function getLocation() {
+      if (navigator.geolocation) {
+        var options = { timeout: 60000 };
+        navigator.geolocation.getCurrentPosition(
+          showLocation,
+          errorHandler,
+          options);
+      } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
+    }
+  </script>
+  <script>
+   $(document).ready(function () {
+     getLocation();
+        });
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Restauracja</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="index.html">Strona Główna</a>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="menu.html">Wszystko</a>
+              </li>
+              <li>
+                <a href="#">Śniadania</a>
+              </li>
+              <li>
+                <a href="#">Dania Główne</a>
+              </li>
+              <li>
+                <a href="#">Kolacje</a>
+              </li>
+              <li>
+                <a href="#">Desery</a>
+              </li>
+              <li>
+                <a href="#">Napoje</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="gallery.html">Galeria</a>
+          </li>
+          <li>
+            <a href="contact.html">Kontakt</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <a class="btn btn-primary navbar-btn" href="form.html">Złóż zamówienie</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h1 class="col-md-offset-1">Kontakt</h1>
+  <section class="row">
+      
+      <div class="col-md-6 col-md-offset-1">adasd</div>
+      <div id="imap" class="col-md-6"></div>
+  </section>
+
+
+  <footer class="footer" class="col-md-12">Copyright © 2018 Restaurant</footer>
+</body>
+
+</html>

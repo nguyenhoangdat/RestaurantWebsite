@@ -11,3 +11,10 @@ body {
 #categoriesList {
     margin: 5%;
 }
+
+#foodList > li {
+    margin: 2%;
+}
+#foodList > li > button {
+    margin: 5px;
+}
