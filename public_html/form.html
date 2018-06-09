@@ -24,6 +24,7 @@
       $('#main').html("<div class='main-content'><h2>Zamówienie zostało pomyślnie złożone</h2><hr><a href='index.html'>Przejdź do strony głównej</a></div>");
     }
   </script>
+  <script src="js/validation.js"></script>
 </head>
 
 <body>
@@ -87,42 +88,50 @@
     <div class="col-md-5 col-md-offset-1 main-content ">
       <h2>Podaj dane zamówienia</h2>
       <hr>
-      <form id="orderForm" method="GET" onsubmit="Submit()">
+      <form id="orderForm"  action="mailto:xxx@xxx.xx" method="post" enctype="text/plain" onsubmit="return sprawdz()" >
         <div class="form-group">
           <label for="name">Imię</label>
           <input type="text" class="form-control" id="name">
+          <span id="name-error" class="red"></span>
         </div>
         <div class="form-group">
           <label for="surname">Nazwisko</label>
           <input type="text" class="form-control" id="surname">
+          <span id="surname-error" class="red"></span>
         </div>
         <div class="row">
           <div class="form-group col-md-8">
             <label for="city">Miasto</label>
             <input type="text" class="form-control" id="city">
+            <span id="city-error" class="red"></span>
           </div>
           <div class="form-group col-md-4">
             <label for="zip">Kod pocztowy</label>
             <input type="text" class="form-control" id="zip">
+            <span id="zip-error" class="red"></span>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-md-8">
             <label for="street">Ulica</label>
             <input type="text" class="form-control" id="street">
+            <span id="street-error" class="red"></span>
           </div>
           <div class="form-group col-md-4">
             <label for="streetNumber">Nr domu</label>
             <input type="number" class="form-control" id="streetNumber">
+            <span id="streetNumber-error" class="red"></span>
           </div>
         </div>
         <div class="form-group">
           <label for="email">Email address</label>
           <input type="email" class="form-control" id="email" placeholder="email@email.com">
+          <span id="email-error" class="red"></span>
         </div>
         <div class="form-group">
           <label for="phone">Nr telefonu</label>
           <input type="tel" class="form-control" id="phone">
+          <span id="phone-error" class="red"></span>
         </div>
         <div class="form-group">
           <label for="paymentMethod">Metoda płatności</label>
@@ -139,6 +148,7 @@
             <label class="form-check-label" for="individually">Przy odbiorze</label>
           </div>
         </div>
+
         <input class="btn btn-primary" type="submit">
         <input class="btn btn-danger" type="reset">
       </form>
@@ -157,7 +167,7 @@
       </table>
     </section>
 
-  </div>
+  
   <footer class="footer col-md-12">Copyright © 2018 Restaurant</footer>
 </body>
 <style>
@@ -175,5 +185,16 @@
     #koszyk {
       float: right;
     }
+
+    .red{
+      color: darkred;
+      font-weight: bold;
+    }
+
+    .error{
+      border: 1px solid darkred;
+    }
+
+    
   </style>
 </html>
