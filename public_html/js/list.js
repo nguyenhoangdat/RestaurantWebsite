@@ -10,7 +10,7 @@ var list = [{
     name: "Lazania",
     price: 20,
     category: "main",
-    pictureSrc: "images/food/Lasagne.jpg"
+    pictureSrc: "images/food/lasagne-bolognese-10.jpg"
   },
   {
     id: 3,

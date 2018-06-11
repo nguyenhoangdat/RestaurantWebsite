@@ -24,6 +24,33 @@
       $('#main').html("<div class='main-content'><h2>Zamówienie zostało pomyślnie złożone</h2><hr><a href='index.html'>Przejdź do strony głównej</a></div>");
     }
   </script>
+  <style>
+    body {
+      background: url('images/background/Restaurant-Food-2.jpg') no-repeat top center fixed;
+    }
+
+    .main-content {
+      background: ghostwhite;
+      margin: 2%;
+      border-radius: 1%;
+      padding: 1%;
+    }
+
+    #koszyk {
+      float: right;
+    }
+
+    .red{
+      color: darkred;
+      font-weight: bold;
+    }
+
+    .error{
+      border: 1px solid darkred;
+    }
+
+    
+  </style>
   <script src="js/validation.js"></script>
 </head>
 
@@ -107,7 +134,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="zip">Kod pocztowy</label>
-            <input type="text" class="form-control" id="zip">
+            <input type="text" class="form-control" id="zip" placeholder="12345">
             <span id="zip-error" class="red"></span>
           </div>
         </div>
@@ -170,31 +197,5 @@
   
   <footer class="footer col-md-12">Copyright © 2018 Restaurant</footer>
 </body>
-<style>
-    body {
-      background: url('images/background/Restaurant-Food-2.jpg') no-repeat top center fixed;
-    }
 
-    .main-content {
-      background: ghostwhite;
-      margin: 2%;
-      border-radius: 1%;
-      padding: 1%;
-    }
-
-    #koszyk {
-      float: right;
-    }
-
-    .red{
-      color: darkred;
-      font-weight: bold;
-    }
-
-    .error{
-      border: 1px solid darkred;
-    }
-
-    
-  </style>
 </html>
